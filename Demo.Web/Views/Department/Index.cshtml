@@ -1,0 +1,78 @@
+﻿@model IEnumerable<DepartmentDTO>
+@{
+    ViewData["Title"] = "Department";
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Department Card</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Departments</li>
+
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+
+
+
+
+                <a asp-controller="Department" asp-action="Create" class="btn btn-primary">Create New Department</a>
+
+                <br />
+                <br />
+
+                <form asp-controller="Department" asp-action="Index" class="form-group" method="get">
+                    <input type="text" name="SearchValue" class="form-control" />>
+                    <input type="submit" value="Search" class="btn btn-danger" />
+                </form>
+
+
+
+
+
+                <table class="table table-hover table-striped table-bordered text-center">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Code</th>
+                            <th>Update</th>
+                            <th>Delete</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td>@item.Name</td>
+                                <td>@item.Code</td>
+                                <td><a asp-controller="Department" asp-action="Update" asp-route-id="@item.Id" class="btn btn-primary">Update</a></td>
+                                <td><a asp-controller="Department" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-warning">Delete</a></td>
+                                <td><a asp-controller="Department" asp-action="Details" asp-route-id="@item.Id" class="btn btn-success">Details</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+

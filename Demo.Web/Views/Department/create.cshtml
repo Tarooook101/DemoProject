@@ -1,0 +1,79 @@
+﻿@model DepartmentDTO
+
+
+@{
+    ViewData["Title"] = "Department";
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Create Department</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Department Card</li>
+
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+
+                @* method بتفهم فقط : ==> get and post only any theng another that write post *@
+                <form asp-controller="Department" asp-action="create" method="post" class="form-group">
+
+
+                    @* Make alert with close *@
+                    <div asp-validation-summary="All" class="text-danger"></div>
+
+
+                    @* asp-for : mean id , and for . and should add it in start of page : @model DepartmentDTO*@
+                    <label asp-for="Name">Department Name</label>
+                    @* <input type="text" asp-for="Name" class="form-control" name="Name" /> *@
+                    <input type="text" asp-for="Name" class="form-control" asp-for="Name" />
+                    @* <span asp-validation-for="Name"class="text-danger"></span> *@
+                    <br />
+
+
+                    <label asp-for="Code">Department Code</label>
+                    <input type="text" asp-for="Code" class="form-control" asp-for="Code" />
+                    @* <span asp-validation-for="Code" class="text-danger"></span> *@
+
+                    <br />
+
+                    <center>
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                        <input type="reset" value="Cancle" class="btn btn-primary" />
+                    </center>
+
+
+                </form>
+
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+
+
+
+
+@* jquery library in layout  *@
+
+@section JqueryValidation {
+    <script src="~/plugins/jquery-validation/jquery.validate.min.js"></script>
+    <script src="~/plugins/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+@* this library download it  *@
+@* click in wwwroot and click add then click client server library then jquery-validation-unobtrusive *@
